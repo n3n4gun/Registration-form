@@ -89,6 +89,10 @@ class RegistrForm(customtkinter.CTk):
 
                 application_socket.send(send_data) # sending data
 
+                server_message = application_socket.recv(1024).decode('utf-8')
+
+                messagebox.showinfo('Information', server_message)
+
                 application_socket.close() # after sending connection with server close
 
                 # at the end, the fields are cleared
